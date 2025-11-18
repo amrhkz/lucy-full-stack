@@ -1,0 +1,5 @@
+.container-x {
+  position: absolute;
+  right: 0;
+  min-width: calc(100% - 60px);
+}

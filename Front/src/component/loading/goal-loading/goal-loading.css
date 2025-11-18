@@ -1,0 +1,23 @@
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #262626;
+  }
+  100% {
+    background-color: #313131;
+  }
+}
+.goal-loading-list{
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+.goal-loading {
+  width: 275px;
+  height: 220px;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+}

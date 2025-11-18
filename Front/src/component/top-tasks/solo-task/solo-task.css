@@ -1,0 +1,13 @@
+.solo-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e2329;
+  box-shadow: var(--shadow);
+  padding: 12px;
+  border-radius: 6px;
+  color: var(--text);
+  max-height: fit-content;
+  min-width: 225px;
+  cursor: pointer;
+}

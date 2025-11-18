@@ -1,0 +1,67 @@
+.day-card {
+  border-radius: 6px;
+  min-width: 275px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.day-card .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 24px;
+  color: var(--second);
+}
+.day-card .header .date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 8px;
+  font-size: 24px;
+  border-radius: 6px;
+  color: var(--second);
+}
+.day-card .habit-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 6px;
+  height: 48px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: var(--tran-04);
+  padding: 6px 24px;
+  color: var(--text);
+}
+.day-card .habit-item:hover {
+  background: #464444;
+}
+.day-card .habit-item .check-box .roundedSquareCheckbox {
+  height: 24px;
+}
+.day-card .habit-item .check-box {
+  display: flex;
+  align-items: center;
+}
+.day-card .habit-item .check-box .roundedSquareCheckbox {
+  width: 20px;
+  height: 20px;
+  display: block;
+  fill: none;
+  flex-shrink: 0;
+  stroke: rgb(196, 196, 196);
+}
+.day-card .habit-item .check-box.done .roundedSquareCheckbox {
+  fill: #2382e3;
+  stroke: none;
+}
+.day-card .habit-item .check-box .roundedCheck {
+  display: none;
+  fill: white;
+  flex-shrink: 0;
+}
+.day-card .habit-item .check-box.done .roundedCheck {
+  display: block;
+}

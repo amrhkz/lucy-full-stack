@@ -1,0 +1,202 @@
+.calendar-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+  color: white;
+}
+.calendar-container .calendar-top {
+  padding-top: 24px;
+  background: var(--body);
+  position: sticky;
+  top: 0;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  background: var(--bg);
+}
+
+.calendar-header .navigate-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.calendar-header i {
+  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.443);
+  transition: var(--tran-04);
+}
+.calendar-header button {
+  font-size: 14px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.81);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+  padding: 0 6px;
+  transition: var(--tran-04);
+}
+.calendar-header button:hover,
+.calendar-header i:hover {
+  background: rgba(255, 255, 255, 0.055);
+}
+.calendar-header h2 {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.81);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+  color: #bbbbbb;
+  font-weight: bold;
+}
+.calendar-weekdays .calendar-weekdays-item {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.282);
+  height: 24px;
+}
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 8px;
+  border-left: 1px solid rgb(47, 47, 47);
+  border-bottom: 1px solid rgb(47, 47, 47);
+}
+
+.calendar-day {
+  text-align: center;
+  min-height: 200px;
+  border-right: 1px solid rgb(47, 47, 47);
+  border-top: 1px solid rgb(47, 47, 47);
+}
+.calendar-day .day-header {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding-top: 6px;
+  padding-right: 6px;
+  padding-bottom: 6px;
+  font-size: 14px;
+}
+.calendar-day .day-header .day-num.today {
+  background: rgba(222, 85, 80, 0.91);
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.calendar-day .day-event {
+  padding: 6px;
+}
+.calendar-day .day-event .habit-card {
+  text-align: left;
+  background: #2f2e2e;
+  border-radius: 6px;
+}
+.calendar-day .day-event .habit-card > .title {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  height: 24px;
+  color: #d9d9d9;
+  padding: 6px 6px 0 6px;
+}
+.calendar-day .day-event .habit-card .habit-list {
+  display: flex;
+  flex-direction: column;
+}
+.calendar-day .day-event .habit-card .habit-list .habit-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 6px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: var(--tran-04);
+  padding: 6px;
+}
+.calendar-day .day-event .habit-card .habit-list .habit-item:hover {
+  background: #464444;
+}
+.calendar-day .day-event .habit-card .habit-list .habit-item .check-box {
+  display: flex;
+  align-items: center;
+}
+.calendar-day
+  .day-event
+  .habit-card
+  .habit-list
+  .habit-item
+  .check-box
+  .roundedSquareCheckbox {
+  width: 15px;
+  height: 15px;
+  display: block;
+  fill: none;
+  flex-shrink: 0;
+  stroke: rgb(196, 196, 196);
+}
+.calendar-day
+  .day-event
+  .habit-card
+  .habit-list
+  .habit-item
+  .check-box.done
+  .roundedSquareCheckbox {
+  fill: #2382e3;
+  stroke: none;
+}
+.calendar-day
+  .day-event
+  .habit-card
+  .habit-list
+  .habit-item
+  .check-box
+  .roundedCheck {
+  display: none;
+  fill: white;
+  flex-shrink: 0;
+}
+.calendar-day
+  .day-event
+  .habit-card
+  .habit-list
+  .habit-item
+  .check-box.done
+  .roundedCheck {
+  display: block;
+}
+.calendar-day .day-event .habit-card .habit-list .habit-item .title {
+  font-size: 12px;
+  font-weight: 300;
+}
+.current-month {
+  background: var(--bg);
+}
+
+.other-month {
+  color: #777;
+}
+.empty-card {
+  font-size: 12px;
+}

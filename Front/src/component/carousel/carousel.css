@@ -1,0 +1,64 @@
+.shopping-list {
+  width: 100%;
+  position: relative;
+}
+
+.mySwiper {
+  height: 240px;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.swiper-slide .shopping-card {
+  background: var(--card);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: var(--tran-04);
+  cursor: pointer;
+  max-width: 250px;
+}
+.swiper-slide .shopping-card:hover {
+  opacity: 0.8;
+}
+.swiper-slide .shopping-card > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px 6px 0 0;
+}
+.swiper-slide .shopping-card .no-image {
+  width: 100%;
+  height: 180px;
+  background-color: #f3f3f3;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  border: 1px dashed #ccc;
+}
+.swiper-slide .shopping-card .detail {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  padding: 10px 15px;
+}
+.swiper-slide .shopping-card .desc {
+  color: var(--second);
+}
+.shopping-list .swiper-slide .add-product {
+  background: var(--card);
+  color: var(--second);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  width: 200px;
+  height: 200px;
+  font-size: 55px;
+  cursor: pointer;
+}

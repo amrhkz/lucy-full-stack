@@ -1,0 +1,155 @@
+.new-auth {
+  width: 320px;
+}
+.new-auth > .title {
+  font-size: 50px;
+  margin-top: 10vh;
+  font-weight: 700;
+  margin-bottom: 23px;
+  text-align: center;
+  line-height: 1.1;
+  max-width: 380px;
+}
+.new-auth > .title h1 {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  margin: 0px;
+  color: var(--text);
+}
+.new-auth > .title h2 {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 26px;
+  margin: 0px;
+  color: var(--second);
+  letter-spacing: 0.5px;
+}
+.new-auth .login-section .login-btn-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.new-auth .login-section .login-btn-list .login-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 36px;
+  border-radius: 6px;
+  color: var(--second);
+  fill: var(--second);
+  background: none;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0 12px;
+  font-weight: 500;
+  border: 1px solid rgba(84, 72, 49, 0.15);
+  width: 100%;
+  margin-top: 8px;
+}
+.new-auth .login-section .login-btn-list .login-btn:hover {
+  background: rgba(55, 53, 47, 0.06);
+}
+.new-auth .login-section .login-btn-list .login-btn img {
+  width: 16px;
+}
+.new-auth .login-section .login-btn-list .login-btn svg {
+  width: 20px;
+  display: block;
+  fill: inherit;
+}
+.new-auth .login-section > .seperator {
+  background: #54483114;
+  height: 1px;
+  width: 100%;
+  margin: 20px 0;
+}
+.new-auth .login-section > form {
+  display: flex;
+  flex-direction: column;
+}
+.new-auth .login-section > form > label {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: rgb(115, 114, 110);
+  font-weight: 500;
+}
+.new-auth .login-section > form > input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  font-size: 15px;
+  line-height: 26px;
+  border-radius: 6px;
+  background: transparent;
+  cursor: text;
+  padding: 12px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+  outline: none;
+  color: var(--second);
+  border: 1px solid var(--border);
+}
+.new-auth .login-section > form > .desc {
+  color: rgba(70, 68, 64, 0.45);
+  font-size: 12px;
+  line-height: 16px;
+  margin-top: 6px;
+  margin-bottom: 18px;
+  text-align: left;
+  display: flex;
+}
+.new-auth .login-section > form > button {
+  user-select: none;
+  cursor: pointer;
+  display: inline-grid;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  height: 36px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-weight: 500;
+  background: rgb(35, 131, 226);
+  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
+    rgba(15, 15, 15, 0.1) 0px 1px 2px;
+  color: white;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+.new-auth .login-section > form > button:hover {
+  background: rgb(0, 119, 212);
+}
+.new-auth .login-section > form > .resend-btn {
+  color: rgb(35, 131, 226);
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.new-auth .login-section > form > .resend-btn:hover {
+  background: rgba(35, 131, 226, 0.07);
+}
+.new-auth .login-section > p {
+  width: 100%;
+  margin-bottom: 0px;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(115, 114, 110);
+  text-align: center;
+}
+.new-auth .login-section > p > a {
+  display: inline;
+  color: rgba(70, 68, 64, 0.45);
+  text-decoration: underline;
+  user-select: auto;
+  cursor: pointer;
+}
+.new-auth .login-section > p > a:hover {
+  color: #2383e2;
+}

@@ -1,0 +1,128 @@
+.update-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.5s ease;
+  border-radius: 6px;
+  color: var(--second);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+}
+.update-btn:hover {
+  background: #858500;
+  color: #fff;
+}
+.goal-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  height: 220px;
+}
+.goal-add:hover {
+  background: var(--hover);
+}
+.goal-add .goal-add-title {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  color: #bebebc;
+}
+.goal-add .goal-add-title > span {
+  font-size: 28px;
+}
+.goal-add-popup {
+  display: none;
+}
+.goal-add-popup.show {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--card);
+  color: var(--text);
+  border-radius: 6px;
+  width: 675px;
+  height: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 32px 64px;
+  z-index: 2;
+}
+.goal-add-popup form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.icon-section {
+  display: flex;
+}
+.icon-section .icon-select {
+  display: flex;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #636363;
+  opacity: 0;
+}
+.icon-section .icon-select svg {
+  width: 14px;
+  height: 14px;
+  display: block;
+  fill: rgba(255, 255, 255, 0.282);
+  flex-shrink: 0;
+  margin-right: 6px;
+}
+.icon-section .icon-select:hover {
+  background: #2c2c2c;
+  opacity: 1;
+}
+.goal-add-popup .input {
+  width: 100%;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px;
+  outline: none;
+  font-size: 36px;
+  font-weight: 700;
+}
+.goal-add-popup .desc-input {
+  font-size: 16px;
+  padding: 12px;
+}
+.goal-add-popup .grade-input {
+  font-size: 16px;
+  padding: 12px;
+}
+.goal-add-popup input::placeholder {
+  color: #373737;
+}
+.popup-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  opacity: 0.5;
+}
+.goal-add-popup .create-btn {
+  background: #313131;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  width: 200px;
+  font-size: 16px;
+  color: #636363;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.goal-add-popup .create-btn:hover {
+  opacity: 0.5;
+}

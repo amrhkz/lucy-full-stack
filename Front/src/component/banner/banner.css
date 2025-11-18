@@ -1,0 +1,72 @@
+.banner {
+  width: 100%;
+  position: relative;
+  margin-bottom: 48px;
+  padding: 12px 32px;
+}
+.banner .banner-bg {
+  position: relative;
+}
+.banner .banner-bg .modal-toggle > .select-img {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  color: var(--text);
+  cursor: pointer;
+}
+.banner .banner-bg img {
+  width: 100%;
+  height: 30vh;
+  object-fit: cover;
+  object-position: 0px -70px;
+  border-radius: 12px;
+}
+.banner .banner-logo {
+  position: absolute;
+  bottom: -10%;
+  left: 7%;
+  cursor: pointer;
+}
+.banner .banner-logo img {
+  width: 124px;
+  height: 124px;
+  border-radius: 12px;
+  position: relative;
+}
+.banner .banner-logo .select-img {
+  display: none;
+}
+.banner .banner-logo:hover .select-img {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--second);
+  color: var(--text);
+  opacity: 0.6;
+  width: 100%;
+  height: 32px;
+  border-radius: 0 0 12px 12px;
+}
+.banner .upload-img {
+  color: var(--text);
+  width: 300px;
+}
+.banner .upload-img > form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.banner .upload-img > form > input {
+  background: var(--second);
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 6px;
+}
+.banner .upload-img > form > button {
+  background: var(--border);
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+}

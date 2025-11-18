@@ -1,0 +1,23 @@
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #262626;
+  }
+  100% {
+    background-color: #313131;
+  }
+}
+.top-tasks-loading-list{
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+.top-tasks-loading {
+  width: 212px;
+  height: 40px;
+  border-radius: 3px;
+  box-shadow: var(--shadow);
+}

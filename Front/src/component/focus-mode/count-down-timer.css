@@ -1,0 +1,60 @@
+.count-down-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  padding: 24px;
+  width: 250px;
+  max-height: fit-content;
+}
+.timer-field {
+  color: var(--second);
+  font-size: 36px;
+}
+.input-field {
+  display: flex;
+  gap: 6px;
+}
+.input-field .input-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.input-field .input-col input {
+  background: var(--border);
+  border: none;
+  padding: 12px;
+  max-width: 50px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 6px;
+  color: var(--second);
+  outline: none;
+}
+.btn-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.btn-field button {
+  background: var(--border);
+  color: var(--second);
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--tran-03);
+}
+.btn-field button:hover{
+  opacity: 0.8;
+}

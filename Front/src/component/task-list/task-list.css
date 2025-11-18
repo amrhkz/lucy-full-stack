@@ -1,0 +1,56 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.task-list .task {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 6px;
+}
+.task-list .task .task-row {
+  background: #262626;
+  color: var(--second);
+  box-shadow: var(--shadow);
+  padding: 8px 24px;
+  border-radius: 3px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  transition: 0.4s;
+  min-width: 200px;
+}
+.task-row:hover {
+  background: #313131;
+}
+.task-row .title {
+  font-size: 14px;
+}
+.task-list .task .edit-menu {
+  display: flex;
+  background: #262626;
+  border-radius: 3px;
+  transition: all 0.5s ease;
+  transform: translateX(-90px);
+  z-index: -1;
+}
+.task-list .task:hover .edit-menu{
+  transform: translateX(0px);
+  z-index: 0;
+  box-shadow: var(--shadow);
+}
+.task-list .task .edit-menu i {
+  padding: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  color: var(--primary);
+}
+.task-list .task .edit-menu i:hover {
+  opacity: 0.8;
+  background: #313131;
+}

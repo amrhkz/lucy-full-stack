@@ -1,0 +1,42 @@
+.spider-chart {
+  background: var(--card);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.add-main-btn,
+.add-child-btn {
+  position: absolute;
+  z-index: 10;
+  padding: 10px 15px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  top: 20px;
+}
+
+.chart-node {
+  background: grey;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-align: center;
+}
+
+.parent-node {
+  background: #ffcc00;
+}
+
+.child-node {
+  background: #66ccff;
+}

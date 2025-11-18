@@ -1,0 +1,23 @@
+.nav-link.active {
+  background: var(--hover);
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-link span {
+  display: none;
+}
+.nav-link .icon {
+  color: #adacac;
+}
+.nav-link.active .icon {
+  color: var(--primary);
+}
+.nav-avatar {
+  min-width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}

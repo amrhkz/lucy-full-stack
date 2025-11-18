@@ -1,0 +1,45 @@
+.bank-card {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  color: var(--second);
+  max-width: 360px;
+  height: 200px;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.bank-card .bank-name {
+  background: var(--border);
+  width: 100%;
+  height: 42px;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 18px;
+}
+.bank-card .balance {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 16px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+}
+.bank-card .card-num {
+  font-size: 26px;
+  letter-spacing: 3.7px;
+}
+.bank-card .shaba {
+  font-size: 18px;
+  letter-spacing: 1.1px;
+}

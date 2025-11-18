@@ -1,0 +1,34 @@
+.register-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  color: #fff;
+  gap: 12px;
+  padding: 24px;
+}
+.register-form hr{
+  border-color: #fff;
+  width: 100%;
+  margin: 12px;
+}
+.register-form input {
+  padding: 12px;
+  border-radius: 6px;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+.register-form button {
+  padding: 12px;
+  border-radius: 6px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}

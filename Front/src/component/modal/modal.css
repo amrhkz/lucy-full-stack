@@ -1,0 +1,30 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  opacity: 0.5;
+  z-index: 5000;
+}
+.modal-toggle{
+  cursor: pointer;
+}
+.modal-menu {
+  display: none;
+}
+
+.modal-menu.show {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  border-radius: 12px;
+  min-width: 300px;
+  z-index: 5001;
+}

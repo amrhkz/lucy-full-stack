@@ -1,0 +1,26 @@
+.finance-task-list{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+}
+.finance-task {
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--card);
+  padding: 12px;
+  border-radius: 6px;
+  color: var(--second);
+  max-width: 200px;
+  box-shadow: var(--shadow);
+}
+.finance-task .title {
+  font-size: 18px;
+}
+.finance-task .price {
+  font-size: 14px;
+  font-family: "IranSansNum";
+}

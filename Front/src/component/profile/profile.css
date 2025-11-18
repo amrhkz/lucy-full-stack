@@ -1,0 +1,345 @@
+.profile-row {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.profile-container {
+  position: relative;
+  width: 750px;
+  height: 450px;
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 25px var(--primary);
+  overflow: hidden;
+  background: var(--card);
+  color: var(--text);
+}
+.profile-container .form-box {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.form-box.Login {
+  left: 0;
+  padding: 0 40px;
+}
+.form-box.Login .animation {
+  transform: translateX(0%);
+  transition: 0.7s;
+  opacity: 1;
+  transition-delay: calc(0.1s * var(--D));
+}
+.profile-container.active .form-box.Login .animation {
+  transform: translateX(-120%);
+  opacity: 0;
+}
+.form-box.Register {
+  right: -40%;
+  padding: 0 60px;
+}
+
+.form-box.Register .animation {
+  transform: translateX(120%);
+  transition: 0.7s;
+  filter: blur(10px);
+  opacity: 0;
+}
+.profile-container.active .form-box.Register .animation {
+  transform: translateX(-120%);
+  opacity: 1;
+  filter: blur(0);
+}
+.form-box h2 {
+  font-size: 32px;
+  text-align: center;
+}
+.form-box .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin-top: 25px;
+}
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 2px solid #fff;
+  padding-right: 23px;
+  transition: 0.5s;
+}
+.input-box input:focus,
+.input-box input:valid {
+  border-bottom: 2px solid var(--primary);
+}
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #fff;
+  transition: 0.5s;
+}
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -5px;
+  color: var(--primary);
+}
+.input-box i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 18px;
+  transform: translateY(-50%);
+  transition: 0.5s;
+}
+.input-box input:focus ~ i,
+.input-box input:valid ~ i {
+  color: var(--primary);
+}
+.btn {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid var(--primary);
+  overflow: hidden;
+  z-index: 1;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  height: 300%;
+  width: 100%;
+  background: linear-gradient(#25252b, var(--primary), #25252b, var(--primary));
+  top: -100%;
+  left: 0;
+  z-index: -1;
+  transition: 0.5s;
+}
+.btn:hover:before {
+  top: 0;
+}
+.regi-link {
+  font-size: 14px;
+  text-align: center;
+  margin: 20px 0 10px;
+}
+.regi-link p {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+.regi-link a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 600;
+}
+.regi-link a:hover {
+  text-decoration: underline;
+}
+.info-content {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.info-content.Login {
+  right: 0;
+  text-align: right;
+  padding: 0 40px 60px 150px;
+}
+.info-content.Login .animation {
+  transform: translateX(0);
+  transition: 0.7s ease;
+  opacity: 1;
+  filter: blur(0px);
+}
+.profile-container.active .info-content.Login .animation {
+  transform: translateX(120%);
+  opacity: 0;
+}
+.info-content.Register {
+  left: 0;
+  text-align: left;
+  padding: 0 150px 60px 60px;
+  pointer-events: none;
+}
+.info-content.Register .animation {
+  transform: translateX(-150%);
+  transition: 0.7s ease;
+  opacity: 0;
+  filter: blur(10px);
+}
+.profile-container.active .info-content.Register .animation {
+  transform: translateX(0);
+  opacity: 1;
+  filter: blur(0);
+}
+.info-content h2 {
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 1.3;
+}
+.info-content p {
+  font-size: 16px;
+}
+.profile-container .curved-shape {
+  position: absolute;
+  right: 0;
+  top: -5px;
+  height: 600px;
+  width: 850px;
+  background: linear-gradient(45deg, #25252b, var(--primary));
+  transform: rotate(10deg) skewY(40deg);
+  transform-origin: bottom right;
+  transition: 1.5s ease;
+  transition-delay: 1.6s;
+}
+.profile-container.active .curved-shape {
+  transform: rotate(0deg) skewY(0deg);
+  transition-delay: 0.5s;
+}
+.profile-container .curved-shape2 {
+  position: absolute;
+  left: 250px;
+  top: 100%;
+  height: 700px;
+  width: 850px;
+  background: #25252b;
+  border-top: 3px solid var(--primary);
+  transform: rotate(0deg) skewY(0deg);
+  transform-origin: bottom left;
+  transition: 1.5s ease;
+  transition-delay: 0.5s;
+}
+.profile-container.active .curved-shape2 {
+  transform: rotate(-11deg) skewY(-41deg);
+  transition-delay: 1.2s;
+}
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+.dashboard .dashboard-card {
+  background: var(--card);
+  color: var(--text);
+  height: fit-content;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  display: flex;
+  width: 1150px;
+  height: 85%;
+}
+.dashboard .dashboard-card .dashboard-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 8px;
+  min-width: 240px;
+}
+.dashboard .dashboard-card .dashboard-nav .dash-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  border-radius: 4px;
+  height: 27px;
+  font-size: 14px;
+  line-height: 14px;
+  cursor: pointer;
+  transition: var(--tran-05);
+}
+.dashboard .dashboard-card .dashboard-nav .dash-nav-item.active {
+  background: #ffffff0e;
+}
+.dashboard .dashboard-card .dashboard-nav .dash-nav-item:hover {
+  background: #ffffff0e;
+}
+.dashboard .dashboard-card .dashboard-nav .dash-nav-item img {
+  width: 20px;
+  border-radius: 50%;
+}
+.dashboard .dashboard-card .dashboard-nav .seperator {
+  background: #ffffff18;
+  height: 1px;
+  width: 100%;
+  margin: 6px 0;
+  border-radius: 25px;
+}
+.dashboard .dashboard-card .dashboard-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 36px 60px;
+  overflow: auto;
+}
+.dashboard .dashboard-card .dashboard-content .dash-title {
+  border-bottom: 1px solid #ffffff18;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #ffffffcf;
+}
+.dashboard .dashboard-card .dashboard-content .dash-row {
+  padding-bottom: 24px;
+}
+
+.dashboard .dashboard-card .dashboard-content .dash-row > .left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.dashboard .dashboard-card .dashboard-content .dash-row > .left > .title {
+  font-size: 14px;
+  line-height: 20px;
+}
+.dashboard .dashboard-card .dashboard-content .dash-row > .left > .desc {
+  font-size: 13px;
+  line-height: 18px;
+  color: #ffffff75;
+}
+.dashboard .dashboard-card .dashboard-content .dash-row > button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  padding: 12px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 13px;
+  justify-content: center;
+  font-weight: 500;
+  line-height: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+}
+.dashboard .dashboard-card .dashboard-content .dash-row > button:disabled {
+  opacity: 0.4;
+}
+.dashboard .dashboard-card .dashboard-content .dash-row > button.toggle-btn {
+  border: none;
+}
+.dashboard .dashboard-card .dashboard-content img {
+  width: 60px;
+  border-radius: 50%;
+}

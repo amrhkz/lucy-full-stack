@@ -35,7 +35,9 @@ exports.allocateIncome = async (req, res) => {
     const { amount } = req.body;
     const userId = req.user.id;
     if (!amount || isNaN(amount)) {
-      return res.status(400).json({ error: "Amount is required and must be a number" });
+      return res
+        .status(400)
+        .json({ error: "Amount is required and must be a number" });
     }
     const percentages = {
       storage: 0.2,
@@ -43,10 +45,9 @@ exports.allocateIncome = async (req, res) => {
       investing: 0.2,
       shopping: 0.5,
     };
-    const slugSuffix = userId.slice(0, 4);
     const categories = ["storage", "charity", "investing", "shopping"];
     for (const key of categories) {
-      const slug = `${key}-${slugSuffix}`;
+      const slug = key;
       const money = await Money.findOne({ user: userId, slug });
       if (money) {
         money.targetMoney += amount * percentages[key];

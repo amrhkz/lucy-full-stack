@@ -6,6 +6,7 @@
 .mySwiper {
   height: 240px;
   height: 100%;
+  width: 100%;
 }
 
 .swiper-slide {
@@ -19,7 +20,9 @@
   box-shadow: var(--shadow);
   transition: var(--tran-04);
   cursor: pointer;
+  width: 100%;
   max-width: 250px;
+  
 }
 .swiper-slide .shopping-card:hover {
   opacity: 0.8;

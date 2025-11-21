@@ -29,6 +29,7 @@ app.use("/habits", require("./routes/habits"));
 app.use("/moneys", require("./routes/moneys"));
 app.use("/events", require("./routes/events"))
 app.use("/messages", require("./routes/messages"))
+app.use("/products", require("./routes/product"))
 
 const uploadRoute = require("./routes/upload");
 app.use("/api/upload", uploadRoute);

@@ -9,6 +9,7 @@ import Carousel from "@/component/carousel/carousel";
 import { Tab, TabItem, TabMenu, TabPanel } from "@/component/tab/tab";
 import BankCard from "@/component/bank-card/bank-card";
 import ShoppingTab from "@/component/shopping-tab/shopping-tab";
+import ShoppingSection from "@/component/shopping-section/shopping-section";
 
 const page = () => {
   const [moneys, setMoneys] = useState([]);
@@ -87,7 +88,7 @@ const page = () => {
             </div>
           </TabPanel>
           <TabPanel index={1}>
-            <ShoppingTab />
+            <ShoppingSection />
           </TabPanel>
           <TabPanel index={2}>
             {moneys.map((money) => (

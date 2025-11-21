@@ -1,8 +1,125 @@
 .shopping-tab {
-  position: absolute;
-  right: 0;
-  max-width: calc(100vw - 60px);
   display: flex;
   flex-direction: column;
   gap: 24px;
+}
+.shopping-tab .shopping-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.shopping-tab .shopping-controls .filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--second);
+}
+.shopping-tab .shopping-controls .filters .filter-item {
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--border);
+  transition: var(--tran-04);
+}
+.shopping-tab .shopping-controls .filters .filter-item.active {
+  background: var(--primary);
+  color: var(--text);
+}
+.shopping-tab .shopping-controls .filters .filter-item:hover {
+  background: var(--hover);
+}
+.shopping-tab .shopping-controls .new-shopping {
+  background: var(--border);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: var(--tran-04);
+}
+.shopping-tab .shopping-controls .new-shopping:hover {
+  background: var(--hover);
+}
+.shopping-tab .shopping-controls .new-shopping-menu {
+  width: 100%;
+}
+.shopping-tab .shopping-controls .new-shopping-menu > form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.shopping-tab .shopping-controls .new-shopping-menu > form > input {
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  outline: none;
+}
+.shopping-tab .shopping-controls .new-shopping-menu > form > button {
+  background: var(--border);
+  height: 42px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--tran-04);
+}
+.shopping-tab .shopping-controls .new-shopping-menu > form > button:hover {
+  opacity: 0.8;
+}
+.shopping-tab .shopping-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.shopping-tab .shopping-list .shopping-item {
+  background: var(--border);
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+}
+.shopping-tab .shopping-list .shopping-item > img {
+  border-radius: 0;
+  width: 100px;
+}
+.shopping-tab .shopping-list .shopping-item > .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.update-product {
+  display: flex;
+  flex-direction: column;
+}
+.update-product > form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.update-product > form > input {
+  padding: 6px 12px;
+  border-radius: 3px;
+  background: var(--border);
+}
+.update-product > form > .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.update-product > form > .buttons > button {
+  width: 100%;
+  background: var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--tran-03);
+}
+.update-product > form > .buttons > button:hover {
+  opacity: 0.8;
+}
+.update-product > form > .buttons > .delete-btn {
+  background: var(--sell);
 }

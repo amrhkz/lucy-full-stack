@@ -11,6 +11,7 @@ import ShineTab from "../shine-list/shine-tab/shine-tab";
 import BankTab from "../bank-tab/bank-tab";
 import HabbitTab from "../habbit-tab/habit-tab";
 import HabitTab from "../habbit-tab/habit-tab";
+import ShoppingTab from "../shopping-tab/shopping-tab";
 
 function Profile() {
   const [name, setName] = useState("");
@@ -195,6 +196,13 @@ function Profile() {
             <HabitTab />
           </>
         );
+      case "shopping":
+        return (
+          <>
+            <div className="dash-title">Shopping List</div>
+            <ShoppingTab />
+          </>
+        );
       case "connections":
         return <div className="dash-title">Connections</div>;
       case "general":
@@ -251,15 +259,25 @@ function Profile() {
             </div>
             <div className="dash-nav-group">
               <div className="group-title text-[12px] text-[#ffffff75] h-[24px] flex items-center">
-                Workspace
+                Financial
               </div>
-              <div className="dash-nav-item">
-                <i className="bx  bx-cog bx-xs"></i>
-                General
+              <div
+                className={`dash-nav-item ${
+                  activeSection === "shopping" ? "active" : ""
+                }`}
+                onClick={() => setActiveSection("shopping")}
+              >
+                <i className="bx  bx-cart bx-xs"></i>
+                Shopping
               </div>
-              <div className="dash-nav-item">
-                <i className="bx  bx-people-handshake bx-xs"></i>
-                People
+              <div
+                className={`dash-nav-item ${
+                  activeSection === "bankCards" ? "active" : ""
+                }`}
+                onClick={() => setActiveSection("bankCards")}
+              >
+                <i className="bx  bx-credit-card-alt bx-xs"></i>
+                Bank Cards
               </div>
               <div className="dash-nav-item">
                 <i className="bx  bx-building-house bx-xs"></i>

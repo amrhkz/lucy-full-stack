@@ -4,6 +4,7 @@ import Navbar from "@/component/navbar/navbar";
 import LoadingProgressBar from "@/component/common/LoadingProgressBar";
 import { UserContextProvider } from "./userContext";
 import { ToastContainer } from "react-toastify";
+import { ToastProvider } from "@/component/notify/notify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,8 +31,7 @@ export default function RootLayout({ children }) {
         <LoadingProgressBar />
         <Navbar />
         <UserContextProvider>
-          {children}
-          <ToastContainer position="top-center" />
+          <ToastProvider>{children}</ToastProvider>
         </UserContextProvider>
       </body>
     </html>

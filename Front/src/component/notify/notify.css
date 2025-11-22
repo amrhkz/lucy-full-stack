@@ -1,0 +1,29 @@
+.custom-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 175px;
+  height: 175px;
+  padding: 12px;
+  border-radius: 12px;
+  color: var(--text);
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  z-index: 9999;
+  box-shadow: var(--shadow);
+  background: var(--card);
+}
+.custom-toast.success {
+  color: #27ae60;
+}
+.custom-toast.info {
+  color: #2980b9;
+}
+.custom-toast > i {
+  font-size: 75px;
+}

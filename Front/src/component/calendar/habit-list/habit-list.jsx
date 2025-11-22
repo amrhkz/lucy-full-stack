@@ -1,4 +1,5 @@
 "use client";
+import CustomToast, { useToast } from "@/component/notify/notify";
 import { isSameDay } from "date-fns";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify"; // 👈 اضافه شد
@@ -21,6 +22,7 @@ const UpdateHabit = async (id, body) => {
 };
 
 const HabitList = ({ habits, day }) => {
+  const { showToast } = useToast();
   const [updatedHabits, setUpdatedHabits] = useState([]);
 
   useEffect(() => {
@@ -99,11 +101,10 @@ const HabitList = ({ habits, day }) => {
       );
     }
 
-    // ✅ نوتیف موفقیت
     if (!isCompleted) {
-      toast.success(`عادت "${habit.title}" با موفقیت انجام شد!`);
+      showToast("Done", "success");
     } else {
-      toast.info(`علامت انجام "${habit.title}" حذف شد.`);
+      showToast("Removed", "info");
     }
   };
 

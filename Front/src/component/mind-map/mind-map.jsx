@@ -68,7 +68,6 @@ function MindMap() {
   const spacingX = 140;
   const spacingY = 100;
   const containerRef = useRef(null);
-
   const [tasks, setTasks] = useState([]);
   const [positions, setPositions] = useState([]);
   const [titlesMap, setTitlesMap] = useState({});
@@ -77,7 +76,7 @@ function MindMap() {
   const filteredTasks = tasks.filter((t) => {
     if (filter === "done") return t.status === "done";
     if (filter === "not_done") return t.status !== "done";
-    return true; // all
+    return true;
   });
   const moveTask = async (direction) => {
     if (!selectedTaskId) return;
@@ -116,33 +115,44 @@ function MindMap() {
   }, []);
 
   useEffect(() => {
-    if (filteredTasks.length === 0) return;
-    const containerWidth = containerRef.current?.clientWidth || 800;
-    const columns = Math.floor(containerWidth / spacingX);
-    const result = [];
-    let row = 0;
-    let direction = 1;
-    for (let i = 0; i < filteredTasks.length; ) {
-      const remaining = filteredTasks.length - i;
-      const rowCount = Math.min(columns, remaining);
-      for (let j = 0; j < rowCount; j++) {
-        let col;
-        if (direction === 1) {
-          col = j;
-        } else {
-          col = columns - rowCount + (rowCount - 1 - j);
-        }
-        result.push({
-          x: col * spacingX + spacingX / 2,
-          y: row * spacingY + spacingY / 2,
-        });
-        i++;
-      }
-      row++;
-      direction *= -1;
+  const filtered = tasks.filter((t) => {
+    if (filter === "done") return t.status === "done";
+    if (filter === "not_done") return t.status !== "done";
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    setPositions([]);
+    return;
+  }
+
+  const containerWidth = containerRef.current?.clientWidth || 800;
+  const columns = Math.floor(containerWidth / spacingX);
+  const result = [];
+
+  let row = 0;
+  let direction = 1;
+
+  for (let i = 0; i < filtered.length; ) {
+    const remaining = filtered.length - i;
+    const rowCount = Math.min(columns, remaining);
+
+    for (let j = 0; j < rowCount; j++) {
+      let col = direction === 1 ? j : columns - rowCount + (rowCount - 1 - j);
+      result.push({
+        x: col * spacingX + spacingX / 2,
+        y: row * spacingY + spacingY / 2,
+      });
+      i++;
     }
-    setPositions(result);
-  }, [filteredTasks]);
+
+    row++;
+    direction *= -1;
+  }
+
+  setPositions(result);
+}, [tasks, filter]); // ✔ درست
+
 
   const toggleTask = async (id) => {
     try {
@@ -197,7 +207,7 @@ function MindMap() {
             })}
           </svg>
         )}
-        {positions.map((pos, index) => {
+        {positions.length > 0 && positions.map((pos, index) => {
           const task = filteredTasks[index];
           if (!task) return null;
           const isDone = task?.status === "done";

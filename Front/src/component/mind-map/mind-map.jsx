@@ -22,7 +22,6 @@ const getGoalById = async (id) => {
 
 const swapMindOrder = async (taskA, taskB) => {
   try {
-    // جا‌به‌جایی در بک‌اند
     await fetch(`http://localhost:4000/goals/swap-mindorder`, {
       method: "PATCH",
       credentials: "include",
@@ -58,7 +57,7 @@ function Task({
         e.stopPropagation();
         onSelect(task._id);
       }}
-      onDoubleClick={() => toggleTask(task._id)} // دو کلیک = تغییر وضعیت
+      onDoubleClick={() => toggleTask(task._id)}
     >
       {displayTitle}
     </div>
@@ -74,16 +73,17 @@ function MindMap() {
   const [positions, setPositions] = useState([]);
   const [titlesMap, setTitlesMap] = useState({});
   const [selectedTaskId, setSelectedTaskId] = useState(null);
-
+  const [filter, setFilter] = useState("all");
+  const filteredTasks = tasks.filter((t) => {
+    if (filter === "done") return t.status === "done";
+    if (filter === "not_done") return t.status !== "done";
+    return true; // all
+  });
   const moveTask = async (direction) => {
     if (!selectedTaskId) return;
-
     const index = tasks.findIndex((t) => t._id === selectedTaskId);
     if (index === -1) return;
-
     const newTasks = [...tasks];
-
-    // پایین بردن (با قبلی عوض کن)
     if (direction === "lower" && index > 0) {
       [newTasks[index - 1], newTasks[index]] = [
         newTasks[index],
@@ -92,8 +92,6 @@ function MindMap() {
       setTasks(newTasks);
       await swapMindOrder(newTasks[index], newTasks[index - 1]);
     }
-
-    // بالا بردن (با بعدی عوض کن)
     if (direction === "higher" && index < tasks.length - 1) {
       [newTasks[index + 1], newTasks[index]] = [
         newTasks[index],
@@ -104,7 +102,6 @@ function MindMap() {
     }
   };
 
-  // بارگذاری تسک‌ها
   useEffect(() => {
     getGoals()
       .then((data) => {
@@ -112,58 +109,22 @@ function MindMap() {
           data.map((g) => g.parentId?.toString()).filter(Boolean)
         );
         const leafGoals = data.filter((g) => !parentMap.has(g._id.toString()));
-
-        // 🔹 مرتب‌سازی بر اساس mindOrder (اگر مقدارش وجود نداشت، به انتها بره)
         leafGoals.sort((a, b) => (a.mindOrder ?? 9999) - (b.mindOrder ?? 9999));
-
         setTasks(leafGoals);
       })
       .catch((err) => console.error(err));
   }, []);
 
-  // گرفتن عنوان‌ها فقط عنوان هر تسک (بدون لایه‌بندی)
   useEffect(() => {
-    if (tasks.length === 0) return;
-    const titlesMapTemp = {};
-    tasks.forEach((task) => {
-      titlesMapTemp[task._id] = task.title;
-    });
-    setTitlesMap(titlesMapTemp);
-  }, [tasks]);
-
-  // تغییر وضعیت تسک
-  const toggleTask = async (id) => {
-    try {
-      const res = await fetch(`http://localhost:4000/goals/${id}/toggle`, {
-        method: "PATCH",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-      });
-      if (!res.ok) throw new Error("Failed to toggle goal");
-
-      const updatedGoal = await res.json();
-      setTasks((prev) =>
-        prev.map((task) => (task._id === updatedGoal._id ? updatedGoal : task))
-      );
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  // محاسبه موقعیت‌ها
-  useEffect(() => {
-    if (tasks.length === 0) return;
+    if (filteredTasks.length === 0) return;
     const containerWidth = containerRef.current?.clientWidth || 800;
     const columns = Math.floor(containerWidth / spacingX);
-
     const result = [];
     let row = 0;
     let direction = 1;
-
-    for (let i = 0; i < tasks.length; ) {
-      const remaining = tasks.length - i;
+    for (let i = 0; i < filteredTasks.length; ) {
+      const remaining = filteredTasks.length - i;
       const rowCount = Math.min(columns, remaining);
-
       for (let j = 0; j < rowCount; j++) {
         let col;
         if (direction === 1) {
@@ -181,7 +142,24 @@ function MindMap() {
       direction *= -1;
     }
     setPositions(result);
-  }, [tasks]);
+  }, [filteredTasks]);
+
+  const toggleTask = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:4000/goals/${id}/toggle`, {
+        method: "PATCH",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!res.ok) throw new Error("Failed to toggle goal");
+      const updatedGoal = await res.json();
+      setTasks((prev) =>
+        prev.map((task) => (task._id === updatedGoal._id ? updatedGoal : task))
+      );
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -190,33 +168,41 @@ function MindMap() {
         <button onClick={() => moveTask("higher")}>higher</button>
         <button>Done</button>
         <button>Ongoing</button>
+        <div className="filters">
+          <button onClick={() => setFilter("all")}>Show All</button>
+          <button onClick={() => setFilter("done")}>Show Done</button>
+          <button onClick={() => setFilter("not_done")}>Show Not Done</button>
+        </div>
       </div>
-
       <div className="mind-map-container" ref={containerRef}>
-        <svg className="lines">
-          {positions.map((pos, index) => {
-            if (index === 0) return null;
-            const prev = positions[index - 1];
-            return (
-              <line
-                key={index}
-                x1={prev.x}
-                y1={prev.y}
-                x2={pos.x}
-                y2={pos.y}
-                stroke="var(--second)"
-                strokeWidth="2"
-              />
-            );
-          })}
-        </svg>
-
+        {filteredTasks.length === 0 && (
+          <div className="empty-message">هیچ موردی برای نمایش وجود ندارد</div>
+        )}
+        {filteredTasks.length > 0 && (
+          <svg className="lines">
+            {positions.map((pos, index) => {
+              if (index === 0) return null;
+              const prev = positions[index - 1];
+              return (
+                <line
+                  key={index}
+                  x1={prev.x}
+                  y1={prev.y}
+                  x2={pos.x}
+                  y2={pos.y}
+                  stroke="var(--second)"
+                  strokeWidth="2"
+                />
+              );
+            })}
+          </svg>
+        )}
         {positions.map((pos, index) => {
-          const task = tasks[index];
+          const task = filteredTasks[index];
+          if (!task) return null;
           const isDone = task?.status === "done";
           const displayTitle =
             titlesMap[task._id] || task.title || "بدون عنوان";
-
           return (
             <Task
               key={task?._id}

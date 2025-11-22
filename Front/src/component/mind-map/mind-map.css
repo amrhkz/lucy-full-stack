@@ -12,7 +12,23 @@
   cursor: pointer;
   transition: var(--tran-04);
 }
-.controls > button:hover{
+.controls > button:hover {
+  opacity: 0.8;
+}
+.controls .filters{
+  display: flex;
+  gap: 12px;
+}
+.controls .filters > button {
+  background: var(--card);
+  box-shadow: var(--shadow);
+  color: var(--second);
+  padding: 6px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--tran-04);
+}
+.controls .filters > button:hover {
   opacity: 0.8;
 }
 .mind-map-container {
@@ -63,4 +79,11 @@
 }
 .task.selected {
   color: var(--buy);
+}
+.empty-message {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 1.2rem;
+  color: var(--second);
+  opacity: 0.8;
 }
